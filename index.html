@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космический дрифт - Space Drift</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">КОСМИЧЕСКИЙ ДРИФТ</h1>
+            <div class="header-controls">
+                <div class="score-display">
+                    <span class="score-label">ОЧКИ:</span>
+                    <span id="score">0</span>
+                    <span class="high-score">РЕКОРД: <span id="highScore">0</span></span>
+                </div>
+                <button id="soundToggle" class="retro-btn small">🔊</button>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div class="game-overlay" id="gameOverlay">
+                <div class="start-screen" id="startScreen">
+                    <h2>НАЧАТЬ ИГРУ</h2>
+                    <p>Управление: Стрелки или мышь</p>
+                    <p>Цель: Уворачивайтесь от астероидов!</p>
+                    <button id="startBtn" class="retro-btn">СТАРТ</button>
+                </div>
+                
+                <div class="game-over-screen" id="gameOverScreen" style="display: none;">
+                    <h2>ИГРА ОКОНЧЕНА</h2>
+                    <p>Ваш счет: <span id="finalScore">0</span></p>
+                    <button id="restartBtn" class="retro-btn">ИГРАТЬ СНОВА</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls-info">
+            <p>↑↓←→ или мышь для управления</p>
+        </div>
+    </div>
+    
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

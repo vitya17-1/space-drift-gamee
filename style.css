@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    font-family: 'Orbitron', monospace;
+    color: #00ff00;
+    overflow: hidden;
+    height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: rgba(0, 255, 0, 0.1);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.game-title {
+    font-size: 2.5em;
+    font-weight: 900;
+    text-shadow: 0 0 10px #00ff00;
+    letter-spacing: 3px;
+}
+
+.score-display {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-shadow: 0 0 5px #00ff00;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.high-score {
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+.game-area {
+    position: relative;
+    border: 3px solid #00ff00;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+}
+
+#gameCanvas {
+    display: block;
+    background: #000011;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.start-screen, .game-over-screen {
+    text-align: center;
+    background: rgba(0, 255, 0, 0.1);
+    padding: 40px;
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+}
+
+.start-screen h2, .game-over-screen h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff00;
+    letter-spacing: 2px;
+}
+
+.start-screen p, .game-over-screen p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.retro-btn {
+    background: linear-gradient(45deg, #00ff00, #00cc00);
+    border: 2px solid #00ff00;
+    color: #000;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.3em;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.retro-btn:hover {
+    background: linear-gradient(45deg, #00cc00, #00ff00);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+    transform: scale(1.05);
+}
+
+.retro-btn:active {
+    transform: scale(0.95);
+}
+
+.retro-btn.small {
+    font-size: 1em;
+    padding: 8px 15px;
+    min-width: 50px;
+}
+
+.controls-info {
+    margin-top: 20px;
+    font-size: 1.1em;
+    text-align: center;
+    text-shadow: 0 0 5px #00ff00;
+    opacity: 0.8;
+}
+
+/* Пиксельные эффекты */
+.pixel-glow {
+    animation: pixelGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pixelGlow {
+    from { text-shadow: 0 0 5px #00ff00; }
+    to { text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00; }
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .game-header {
+        width: 100%;
+        max-width: 800px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .game-title {
+        font-size: 2em;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+    }
+}
